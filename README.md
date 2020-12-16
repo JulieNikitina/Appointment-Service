@@ -6,7 +6,8 @@ Hospital open hours: Mon - Fri: 09:00 - 18:00. Reception lasts one hour.
 # Run
 1. [Install Docker](https://www.docker.com/products/docker-desktop) and [Docker Compose](https://docs.docker.com/compose/install/) (if you have Linux).
 2. Clone repository https://github.com/zaebumbatt/Appointment-Service.git
-3. Go to Appointment-Service folder and run ```docker-compose up -d```
+3. Open Appointment-Service folder and run ```docker-compose up -d```
+4. Got to http://localhost:8000/
 
 # Predefined data
 1. Administrator: 
