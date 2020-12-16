@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  web:
+    build: .
+    command:  /bin/sh -c "
+      ./wait-for db:5432 &&
+      python3 manage.py makemigrations --noinput &&
+      python3 manage.py migrate --noinput &&
+      python3 manage.py create_test_data &&
+      python3 manage.py runserver 0.0.0.0:8000
+      "
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}
+    Main
+{% endblock %}
+{% block content %}
+    {% load static %}
+    <form method="POST">
+        {% csrf_token %}
+        <div class="well-title text-center">
+            <h2>Book an Appointment</h2>
+        </div>
+        <hr>
+        <p><h5>Personal info:</h5></p>
+            {{ form.first_name.label_tag }}
+            {{ form.first_name }}
+            {{ form.last_name.label_tag }}
+            {{ form.last_name }}
+        <hr>
+        <p><h5>Desired Service:</h5></p>
+            {{ form.doctor.label_tag }}
+            {{ form.doctor }}
+        <hr>
+        <p><h5>Appointment Date:</h5></p>
+            {{ form.preferred_date.label_tag }}
+            <div class="input-group date" id="datepicker">
+                {{ form.preferred_date }}
+                <span class="input-group-prepend">
+                    <span class="input-group-text">
+                        <i class="fa fa-calendar"></i>
+                    </span>
+                </span>
+            </div>
+            {{ form.available_time.label_tag }}
+            {{ form.available_time }}
+        <hr>
+        <p><h5>Additional information:</h5></p>
+            {{ form.message }}
+        <p>
+        <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-primary">Make An Appointment</button>
+        </div>
+        </p>
+    </form>
+    {{ date_time|json_script:'usedDateTime' }}
+    <script src="{% static 'js/check_schedule.js' %}"></script>
+{% endblock %}
