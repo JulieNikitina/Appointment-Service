@@ -1,4 +1,4 @@
-# Appointment-Service
+# Appointment Service
 Web application with an appointment form for a doctor.
 
 Hospital open hours: Mon - Fri: 09:00 - 18:00. Reception lasts one hour.
