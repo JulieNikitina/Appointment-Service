@@ -8,6 +8,15 @@ Hospital open hours: Mon - Fri: 09:00 - 18:00. Reception lasts one hour.
 2. Clone repository https://github.com/zaebumbatt/Appointment-Service.git
 3. Go to Appointment-Service folder and run ```docker-compose up -d```
 
+# Predefined data
+1. Administrator: 
+   * username: admin 
+   * password: admin
+2. User: 
+   * username: testuser 
+   * password: testpassword
+3. Several doctors with a different speciality.
+
 # Functionality
 * User registration.
 * Application form.
