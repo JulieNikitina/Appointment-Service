@@ -1,36 +1,36 @@
 {% extends 'base.html' %}
 {% block title %}
-    Profile
+  Profile
 {% endblock %}
 
 {% block content %}
-    {% load static %}
-    <div class="well-title text-center">
-        <h2>Your Appointments</h2>
-    </div>
-    <table id="appointments" class="table table-bordered table-condensed table-striped">
-        <thead>
-            <tr>
-                <th scope="col">Date</th>
-                <th scope="col">Time</th>
-                <th scope="col">Doctor</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for appointment in appointments|dictsort:'date' %}
-                <tr id="{{ appointment.id }}">
-                    <td id="date">{{ appointment.date|date:'d M Y' }}</td>
-                    <td id="time">{{ appointment.time|date:'H:i' }}</td>
-                    <td id="doctor">{{ appointment.doctor }}</td>
-                    <td>
-                        <div class="text-center">
-                        <button onclick='appointmentDelete("{{ appointment.id }}");' value='' class="btn btn-danger btn-sm" type="button" title="Delete"><i class="fa fa-trash"></i></button>
-                        </div>
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <script src="{% static 'js/delete_appointment.js' %}"></script>
+{% load static %}
+<div class="well-title text-center">
+  <h2>Your Appointments</h2>
+</div>
+<table id="appointments" class="table table-bordered table-condensed table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Time</th>
+      <th scope="col">Doctor</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for appointment in appointments|dictsort:'date' %}
+    <tr id="{{ appointment.id }}">
+      <td id="date">{{ appointment.date|date:'d M Y' }}</td>
+      <td id="time">{{ appointment.time|date:'H:i' }}</td>
+      <td id="doctor">{{ appointment.doctor }}</td>
+      <td>
+        <div class="text-center">
+          <button onclick='appointmentDelete("{{ appointment.id }}");' value='' class="btn btn-danger btn-sm" type="button" title="Delete"><i class="fa fa-trash"></i></button>
+        </div>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<script src="{% static 'js/delete_appointment.js' %}"></script>
 {% endblock %}
